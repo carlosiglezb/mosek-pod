@@ -30,8 +30,6 @@ if(BUILD_TESTING)
     target_compile_options(callback_c PRIVATE -Wno-switch)
   endif()
 
-  # mosek_c_add_test(concurrent1 "${MOSEK_EXAMPLES_DIR}/data/25fv47.mps")
-  # mosek_c_add_test(concurrent2 "${MOSEK_EXAMPLES_DIR}/data/25fv47.mps")
   mosek_c_add_test(cqo1)
   mosek_c_add_test(feasrepairex1 "${MOSEK_EXAMPLES_DIR}/data/feasrepair.lp")
   mosek_c_add_test(lo1)
@@ -47,31 +45,4 @@ if(BUILD_TESTING)
   mosek_c_add_test(solvelinear)
 
 
-  
-  if(Matlab_FOUND)
-    set(MOSEK_MATLAB_DIR
-      "${MOSEK_ARCHIVE_DIR}/${PROJECT_VERSION_MAJOR}/toolbox")
-
-    function(mosek_matlab_add_test name)
-      matlab_add_unit_test(NAME ${name}_matlab
-        UNITTEST_FILE "${MOSEK_MATLAB_DIR}/examples/${name}.m"
-        TIMEOUT -1
-        ADDITIONAL_PATH "${MOSEK_MATLAB_DIR}/${MOSEK_MATLAB_RELEASE}"
-        MATLAB_ADDITIONAL_STARTUP_OPTIONS -nojvm
-      )
-      set_tests_properties(${name}_matlab PROPERTIES
-        LABELS "matlab;small"
-        REQUIRED_FILES "$ENV{HOME}/mosek/mosek.lic"
-        TIMEOUT 60
-      )
-    endfunction()
-
-    mosek_matlab_add_test(lo1)
-    mosek_matlab_add_test(lo2)
-    mosek_matlab_add_test(milo1)
-    mosek_matlab_add_test(qco)
-    mosek_matlab_add_test(qo1)
-    mosek_matlab_add_test(sdo1)
-    mosek_matlab_add_test(sensitivity)
-  endif()
 endif()
