@@ -333,10 +333,6 @@ if(MOSEK_RUNTIME_FILES)
   install(PROGRAMS ${MOSEK_RUNTIME_FILES} DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif()
 
-install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/mosek/${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}/license.pdf"
-  DESTINATION ${CMAKE_INSTALL_DOCDIR}
-)
 
 configure_package_config_file(mosek-config.cmake.in mosek-config.cmake
   INSTALL_DESTINATION ${MOSEK_DIR}
