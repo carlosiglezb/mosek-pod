@@ -1,4 +1,4 @@
-Wrapper for MOSEK 9.3.15
+Wrapper for MOSEK 10.1.26
 =======================
 
 <https://www.mosek.com>
@@ -10,7 +10,7 @@ I haven't tested it for all operating systems and modifications might be needed 
 Requires a free academic license or paid commercial license, as appropriate.
 Install the license file to `$HOME/mosek/mosek.lic`.
 
-Versions other than 7.1.0 are unsupported by this wrapper.
+Versions other than 10.1.26 (and non-Linux) are unsupported by this wrapper.
 
 ```
 $ mkdir build && cd build
@@ -23,7 +23,7 @@ $ make install
 include(ExternalProject)
 ExternalProject_Add(mosek
         SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/mosek-src"
-        GIT_REPOSITORY https://github.com/AliGriv/mosek.git
+        GIT_REPOSITORY https://github.com/carlosiglezb/mosek-pod.git
         GIT_TAG 2d63b36c3d0c55a90d91f9a550ea0c14323c1bd9
         CMAKE_ARGS
         -DBUILD_TESTING=OFF

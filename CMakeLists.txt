@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
-project(mosek VERSION 9.3.15 LANGUAGES C)
-## https://download.mosek.com/stable/9.3.15/mosektoolslinux64x86.tar.bz2
+project(mosek VERSION 10.1.26 LANGUAGES C)
+## https://download.mosek.com/stable/10.1.26/mosektoolslinux64x86.tar.bz2
 
-# set (PROJECT_VERSION_MAJOR 9.3.15)
+# set (PROJECT_VERSION_MAJOR 10.1.26)
 if(CMAKE_VERSION VERSION_LESS 3.7)
   list(INSERT CMAKE_MODULE_PATH 0
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/3.7"
@@ -72,7 +72,7 @@ elseif(MOSEK_PLATFORM MATCHES "^linux")
 
   if(MOSEK_PLATFORM STREQUAL "linux64x86")
     set(MOSEK_ARCHIVE_EXPECTED_SHA256
-      f4e5ff7b5a6294a47a6833e5d3eb85817647366e13cb65c3d9b7a8c9a5d854a0
+      cde3bdd29b34e5ebdfbf302c35a7b88c6197e747a90f7027e40277f4bd8662f4
     )
   else()
     set(MOSEK_ARCHIVE_EXPECTED_SHA256
